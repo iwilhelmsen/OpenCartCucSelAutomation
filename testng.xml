@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Cucumber Feature Test" parallel="tests" thread-count="10">
+    <test name="checkbox">
+        <classes>
+            <class name="tests.testRunner"/>
+        </classes>
+    </test>
+</suite>
