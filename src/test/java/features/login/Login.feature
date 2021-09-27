@@ -4,8 +4,8 @@ Feature: This feature handles the logging in of customers
     Given User navigates to Login page
 
   Scenario Outline: A user attempts valid login
-    When User enters "<email>" in login form
-    And User enters "<password>" in login form
+    When User enters "<email>" in email input
+    And User enters "<password>" in password input
     And User clicks Login
     Then the user is logged in
 
@@ -15,8 +15,8 @@ Feature: This feature handles the logging in of customers
       | test123@gmail.com | yankeeDoodle |
 
   Scenario Outline: A user attempts an invalid login
-    When User enters "<email>" in login form
-    And User enters "<password>" in login form
+    When User enters "<email>" in email input
+    And User enters "<password>" in password input
     And User clicks Login
     Then the user is not logged in
 
@@ -26,8 +26,8 @@ Feature: This feature handles the logging in of customers
       | empscrooge | 12345    |
 
   Scenario Outline: a user attempts a login with missing information
-    When User enters "<email>" in login form
-    And User enters "<password>" in login form
+    When User enters "<email>" in email input
+    And User enters "<password>" in password input
     And User clicks Login
     Then the user is not logged in
 

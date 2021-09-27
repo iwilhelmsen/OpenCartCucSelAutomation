@@ -1,4 +1,4 @@
-package cucumberTests.pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +16,7 @@ public class loginPage extends basePage {
 
     /**
      * This method enters a string into the login page's email input
+     *
      * @param email String the desired string to be entered.
      */
     public void enterLoginEmail(String email) {
@@ -24,6 +25,7 @@ public class loginPage extends basePage {
 
     /**
      * This method enters a string into the login page's password input
+     *
      * @param password String the desired string to be entered
      */
     public void enterPasswordInput(String password) {
@@ -33,7 +35,7 @@ public class loginPage extends basePage {
     /**
      * This method clicks on the login button on the login page.
      */
-    public void clickLogin(){
+    public void clickLogin() {
         this.driver.findElement(this.loginLoginButton).click();
     }
 }
