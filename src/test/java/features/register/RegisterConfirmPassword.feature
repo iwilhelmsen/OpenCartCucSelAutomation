@@ -10,7 +10,7 @@ Feature: The register page requires that new user passwords must match
     And User enters in "<email>" in email input
     And User enters in "<telephoneNumber>" in telephone input
     And User enters in "<password>" in password input
-    And User repeats their "<password>" in confirm password
+    And User repeats their "<confirmPassword>" in confirm password
     And User selects "<newsletterOption>" to subscribe to newsletter
     And User endorses the privacy policy
     And User clicks the Continue button

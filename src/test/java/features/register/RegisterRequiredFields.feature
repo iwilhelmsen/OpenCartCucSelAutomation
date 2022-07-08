@@ -9,13 +9,13 @@ Feature: The register page requires that all elements of the forms be filled out
     And User enters in "<email>" in email input
     And User enters in "<telephoneNumber>" in telephone input
     And User enters in "<password>" in password input
-    And User repeats their "<password>" in confirm password
+    And User repeats their "<confirmpassword>" in confirm password
     And User selects "<newsletterOption>" to subscribe to newsletter
     And User endorses the privacy policy
     And User clicks the Continue button
     Then User is presented with an error
 
     Examples:
-      | firstName | lastName | email                    | telephoneNumber | password     | newsletterOption |
-      | bob       | hope     |                          | 5555555555      | yankeeDoodle | true             |
-      | clara     | bo       | i.wilhelmsen13@gmail.com |                 | yankeeDoodle | false            |
+      | firstName | lastName | email             | telephoneNumber | password     | confirmpassword | newsletterOption |
+      | bob       | hope     | abc123@gmail.com  | [blank]         | yankeeDoodle | yankeeDoodle    | true             |
+      | clara     | bo       | test123@gmail.com | 5555555555      | yankeeDoodle | [blank]         | false            |

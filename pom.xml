@@ -23,11 +23,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
         <dependency>
@@ -62,14 +64,20 @@
             <version>2.14.1</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
         <resources>
-            <resource>
+            <!--<resource>
                 <directory>src/test/resources</directory>
-                <filtering>true</filtering>
-            </resource>
+            </resource>-->
         </resources>
         <pluginManagement>
             <plugins>
@@ -78,8 +86,6 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M5</version>
                     <configuration>
-                        <parallel>methods</parallel>
-                        <useUnlimitedThreads>true</useUnlimitedThreads>
                         <suiteXmlFiles>
                             <suiteXmlFile>testng.xml</suiteXmlFile>
                         </suiteXmlFiles>

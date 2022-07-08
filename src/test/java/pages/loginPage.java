@@ -9,8 +9,8 @@ public class loginPage extends basePage {
     private final By loginPasswordInput = By.xpath("//input[@placeholder='Password']");
     private final By loginLoginButton = By.xpath("//input[@value='Login']");
 
-    public loginPage(WebDriver driver) {
-        super(driver);
+    public loginPage(String browser){
+        super(browser);
         this.navigateTo(this.pageURL);
     }
 
@@ -20,7 +20,7 @@ public class loginPage extends basePage {
      * @param email String the desired string to be entered.
      */
     public void enterLoginEmail(String email) {
-        this.driver.findElement(this.loginEmailInput).sendKeys(email);
+        this.type(email, this.loginEmailInput);
     }
 
     /**
@@ -29,13 +29,17 @@ public class loginPage extends basePage {
      * @param password String the desired string to be entered
      */
     public void enterPasswordInput(String password) {
-        this.driver.findElement(this.loginPasswordInput).sendKeys(password);
+        this.type(password, this.loginPasswordInput);
     }
 
     /**
      * This method clicks on the login button on the login page.
      */
     public void clickLogin() {
-        this.driver.findElement(this.loginLoginButton).click();
+        this.click(this.loginLoginButton);
+    }
+
+    public String getPageURL() {
+        return pageURL;
     }
 }

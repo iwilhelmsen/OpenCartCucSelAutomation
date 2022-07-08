@@ -1,13 +1,12 @@
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+package utils;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import stepDefinitions.BaseStep;
 
 public class ProjectListener implements ITestListener {
 
-    private static final Logger logger = LogManager.getLogger();
+    //private static final Logger logger = LogManager.getLogger();
 
     @Override
     public void onTestStart(ITestResult result) {

@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class registerPage extends basePage {
     private final String pageURL = "account/register";
@@ -15,9 +14,10 @@ public class registerPage extends basePage {
     private final By registerNewsletterOptOutSelect = By.xpath("//*[@id=\"content\"]/form/fieldset[3]/div/div/label[2]/input");
     private final By registerPrivacyPolicyCheckBox = By.xpath("//input[@name='agree']");
     private final By registerSubmitButton = By.xpath("//input[@value='Continue']");
+    private final By registerFailureAlertIcon = By.xpath("//*[@id=\"account-register\"]/div[1]/i");
 
-    public registerPage(WebDriver driver){
-        super(driver);
+    public registerPage(String browser) {
+        super(browser);
         this.navigateTo(this.pageURL);
     }
 
@@ -27,7 +27,7 @@ public class registerPage extends basePage {
      * @param firstName String
      */
     public void enterFirstName(String firstName){
-        this.driver.findElement(this.registerFirstNameInput).sendKeys(firstName);
+        this.type(firstName, this.registerFirstNameInput);
     }
 
     /**
@@ -36,7 +36,7 @@ public class registerPage extends basePage {
      * @param lastName String
      */
     public void enterLastName(String lastName){
-        this.driver.findElement(this.registerLastNameInput).sendKeys(lastName);
+        this.type(lastName, this.registerLastNameInput);
     }
 
     /**
@@ -45,7 +45,7 @@ public class registerPage extends basePage {
      * @param email String
      */
     public void enterEmail(String email){
-        this.driver.findElement(this.registerEmailInput).sendKeys(email);
+        this.type(email, this.registerEmailInput);
     }
 
     /**
@@ -54,7 +54,7 @@ public class registerPage extends basePage {
      * @param telephoneNumber String
      */
     public void enterTelephone(String telephoneNumber){
-        this.driver.findElement(this.registerTelephoneInput).sendKeys(telephoneNumber);
+        this.type(telephoneNumber, this.registerTelephoneInput);
     }
 
     /**
@@ -63,7 +63,7 @@ public class registerPage extends basePage {
      * @param password String
      */
     public void enterPassword(String password){
-        this.driver.findElement(this.registerPasswordInput).sendKeys(password);
+        this.type(password, this.registerPasswordInput);
     }
 
     /**
@@ -72,7 +72,7 @@ public class registerPage extends basePage {
      * @param password String
      */
     public void enterConfirmPassword(String password){
-        this.driver.findElement(this.registerConfirmPasswordInput).sendKeys(password);
+        this.type(password, this.registerConfirmPasswordInput);
     }
 
     /**
@@ -83,10 +83,10 @@ public class registerPage extends basePage {
      */
     public void selectNewsletterSubscribe(Boolean flag){
         if (flag){
-            this.driver.findElement(this.registerNewsletterOptInSelect).click();
+            this.click(this.registerNewsletterOptInSelect);
         }
         else {
-            this.driver.findElement(this.registerNewsletterOptOutSelect).click();
+            this.click(this.registerNewsletterOptOutSelect);
         }
     }
 
@@ -95,13 +95,25 @@ public class registerPage extends basePage {
      * privacy policy.
      */
     public void selectPrivacyPolicyOptIn () {
-        this.driver.findElement(this.registerPrivacyPolicyCheckBox).click();
+        this.click(this.registerPrivacyPolicyCheckBox);
     }
 
     /**
      * This method submits the form for verification.
      */
     public void selectSubmitButton(){
-        this.driver.findElement(this.registerSubmitButton).click();
+        this.click(this.registerSubmitButton);
+    }
+
+    /**
+     * This method returns a boolean based off a failure icon in a dimissable alert appearing
+     * @return Boolean
+     */
+    public Boolean failIconAppeared(){
+        return this.isDisplayed(this.registerFailureAlertIcon);
+    }
+
+    public String getPageURL() {
+        return pageURL;
     }
 }

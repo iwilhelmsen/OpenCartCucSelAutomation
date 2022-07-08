@@ -1,34 +1,30 @@
-package stepDefinitions;
+package steps.loginSteps;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.annotations.Parameters;
 import pages.loginPage;
+import runners.loginTestRunner;
 
-public class LoginSteps extends BaseStep {
+public class LoginSteps{
 
-    protected pages.loginPage loginPage;
-
-    @Parameters({"suite-browser"})
-    public LoginSteps(String browser) {
-        super(browser);
-    }
+    private pages.loginPage loginPage;
 
     @Given("User navigates to Login page")
     public void userNavigatesToLoginPage() {
-        this.loginPage = new loginPage(this.driver);
+        this.loginPage = new loginPage(loginTestRunner.loginBrowser);
     }
 
     @When("User enters {string} in email input")
-    public void userEntersInEmailInput(String email) {
-        this.loginPage.enterLoginEmail(email);
+    public void userEntersInEmailInput(String string) {
+        this.loginPage.enterLoginEmail(string);
     }
 
     @And("User enters {string} in password input")
-    public void userEntersInPasswordInput(String password) {
-        this.loginPage.enterPasswordInput(password);
+    public void userEntersInPasswordInput(String string) {
+        this.loginPage.enterPasswordInput(string);
     }
 
     @And("User clicks Login")
@@ -42,5 +38,10 @@ public class LoginSteps extends BaseStep {
 
     @Then("the user is not logged in")
     public void theUserIsNotLoggedIn() {
+    }
+
+    @After
+    public void tearDown(){
+        this.loginPage.getDriver().close();
     }
 }

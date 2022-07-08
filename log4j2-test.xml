@@ -4,7 +4,7 @@
         <Console name="LogToConsole" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
-        <RollingFile name="LogToRollingFile" fileName="target/logs/"
+        <!--<RollingFile name="LogToRollingFile" fileName="/logs/"
                      filePattern="target/logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
             <PatternLayout>
                 <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
@@ -13,14 +13,14 @@
                 <TimeBasedTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="10 MB"/>
             </Policies>
-        </RollingFile>
+        </RollingFile>-->
 
     </Appenders>
     <Loggers>
         <!-- avoid duplicated logs with additivity=false -->
-        <Logger name="runners" level="debug" additivity="false">
+        <!--<Logger name="runners" level="debug" additivity="false">
             <AppenderRef ref="LogToRollingFile"/>
-        </Logger>
+        </Logger>-->
         <Root level="trace">
             <AppenderRef ref="LogToConsole"/>
         </Root>

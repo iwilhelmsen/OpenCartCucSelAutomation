@@ -33,5 +33,5 @@ Feature: This feature handles the logging in of customers
 
     Examples:
       | email            | password     |
-      | abc123@gmail.com |              |
-      |                  | yankeeDoodle |
+      | abc123@gmail.com | [blank]      |
+      | [blank]          | yankeeDoodle |
